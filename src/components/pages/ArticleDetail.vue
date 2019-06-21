@@ -29,19 +29,22 @@
 </template>
 <script>
 	export default{
+		components: {
+    	},
 		data () {
 			return {
-
+				articleDetail: {}
 			}
 		},
-		mounted(){
-
+		created(){
+			this.$Progress.start()
+		},
+		mounted() {
+			this.$Progress.finish()
 		},
 		methods: {
 
-		},
-		components: {
-    	},
+		},		
 		directives:{
         	compiledMarkdown: {
         		bind: function(el){
