@@ -45,7 +45,7 @@
 						<span class="icon iconfont icon-pinglun5"></span>
 						<span class="number">{{item.comment}}</span>
 					</div>-->
-					<div class="item">
+					<div class="item" @click="thumpUpCount(item.id,item)">
 						<span class="icon iconfont icon-dianzan2"></span>
 						<span class="number">{{item.thumpUpCount}}</span>
 					</div>
@@ -87,6 +87,29 @@ export default {
   	},
    	articlesDetailsFn: function(id){
         this.$router.push({ name: 'ArticleDetail', params: { id: id }})
+    },
+    thumpUpCount: function(id, item){
+    	this.$axios.get("/articles/thumbup/" + id).then((response) => {
+  			console.log(response.data.succ);
+  			if(response.data.succ){  			
+			  	this.$message({
+			  		showClose: true,
+		          	message: '点赞成功！',
+		          	type: 'success'
+		          	});
+  				item.thumpUpCount++;
+  			}else{
+  				this.$message({
+		          showClose: true,
+		          message: '点过了！',
+		          type: 'warning'
+	        	})
+  			}
+  			//this.articles = response.data.data
+  		}).catch((error) => {
+			console.log(error)
+			this.$Progress.fail()
+  		})
     }
   }
 }
