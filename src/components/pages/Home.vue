@@ -18,9 +18,9 @@
 					<div class="catalog-wrapper">
 						<span class="iconfont icon-fenlei"></span>
 						<span class="catalog">
-							<!--<span v-for="(obj, index) in item.tags" :key="index">
+							<span v-for="(obj, index) in item.tags" :key="index">
 								{{obj.name}}
-							</span>-->					
+							</span>				
 						</span>
 					</div>
 					<div class="date">
