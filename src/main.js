@@ -12,7 +12,7 @@ import axios from 'axios'
 
 import Mock from './mock/mock' 
 //axios.defaults.baseURL = 'http://mockjs.com' 
-axios.defaults.baseURL = 'http://localhost:8080/ssm' 
+//axios.defaults.baseURL = 'http://localhost:8080/ssm' 
 Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
